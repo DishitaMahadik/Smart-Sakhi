@@ -1,353 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Smart Sakhi | Smartphone & Online Safety</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Sakhi — Phone &amp; Online Safety for Self-Help Groups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
+<header>
+  <div class="nav-row wrap">
+    <a href="#home" class="brand" data-target="home">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
+        <rect x="16" y="4" width="16" height="28" rx="3" stroke="#FAF3E6" stroke-width="2.4"/>
+        <line x1="20" y1="27" x2="28" y2="27" stroke="#FAF3E6" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M12 24c0 8 5 13 12 15 7-2 12-7 12-15" stroke="#E7A72C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-name">Smart<span>Sakhi</span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">☰</button>
+    <nav class="links" id="navLinks">
+      <a href="#home" data-target="home">Home</a>
+      <a href="#tips" data-target="tips">Safety Tips</a>
+      <a href="#scams" data-target="scams">Common Scams</a>
+      <a href="#quiz" data-target="quiz">Spot a Scam</a>
+      <a href="#faq" data-target="faq">Ask Sakhi</a>
+      <a href="#help" data-target="help">Helplines</a>
+    </nav>
+  </div>
+  <div class="stitch"></div>
+</header>
 
-            <div class="logo">
-                🌸 Smart Sakhi
-            </div>
+<main>
 
-            <button class="menu-btn" id="menuBtn">☰</button>
-
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#smartphone">Smartphone</a></li>
-                <li><a href="#safety">Online Safety</a></li>
-                <li><a href="#payments">Payments</a></li>
-                <li><a href="#quiz">Quiz</a></li>
-                <li>
-                    <button id="themeBtn" class="theme-btn">🌙</button>
-                </li>
-            </ul>
-
-        </nav>
-    </header>
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <p class="welcome">WELCOME TO SMART SAKHI</p>
-
-            <h1>
-                Learn Smart.<br>
-                Stay Safe Online.
-            </h1>
-
-            <p>
-                Learn how to use your smartphone confidently
-                and protect yourself from online risks.
-            </p>
-
-            <a href="#smartphone" class="primary-btn">
-                Start Learning →
-            </a>
-
+  <section class="page active" id="home">
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow-tag">For our self-help group</span>
+          <h1>Your phone is powerful. Let's use it wisely, together.</h1>
+          <p class="lede">Smart Sakhi is a simple guide our group members can turn to before sharing an OTP, clicking a link, or trusting a message that seems too good to be true. No jargon — just what to check before you tap.</p>
+          <div class="cta-row">
+            <a href="#tips" class="btn btn-solid" data-target="tips">Start with the basics</a>
+            <a href="#quiz" class="btn btn-outline" data-target="quiz">Try the scam quiz</a>
+          </div>
         </div>
+        <svg class="hero-art" viewBox="0 0 320 340" fill="none">
+          <ellipse cx="160" cy="300" rx="120" ry="18" fill="#E7DEC7"/>
+          <rect x="95" y="40" width="130" height="230" rx="18" fill="#FFFCF6" stroke="#1E5449" stroke-width="3"/>
+          <rect x="110" y="62" width="100" height="150" rx="4" fill="#1E5449" opacity="0.08"/>
+          <circle cx="160" cy="238" r="12" fill="none" stroke="#1E5449" stroke-width="3"/>
+          <path d="M148 234l8 8 16-16" stroke="#4C7A3D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M60 150c-4 40 18 70 55 82" stroke="#E7A72C" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M45 210l15-4-2 16z" fill="#E7A72C"/>
+          <path d="M262 130c8 38-10 72-46 88" stroke="#B54834" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M212 214l-15-6 4-16z" fill="#B54834"/>
+          <circle cx="60" cy="90" r="5" fill="#E7A72C"/>
+          <circle cx="255" cy="70" r="4" fill="#4C7A3D"/>
+          <circle cx="270" cy="200" r="4" fill="#B54834"/>
+        </svg>
+      </div>
+    </div>
 
-        <div class="hero-image">
-            📱
+    <div class="why">
+      <div class="wrap">
+        <div class="stat">
+          <b>1 in 3</b>
+          <span>SHG members report receiving a fake loan or KYC message on WhatsApp every month</span>
         </div>
-
-    </section>
-
-
-    <!-- Smartphone Section -->
-    <section id="smartphone" class="section">
-
-        <div class="section-title">
-            <p>SMARTPHONE BASICS</p>
-            <h2>Use Your Smartphone Confidently</h2>
-            <span>
-                Learn some useful smartphone features.
-            </span>
+        <div class="stat">
+          <b>1930</b>
+          <span>the national helpline number to call within minutes of losing money to fraud</span>
         </div>
-
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">📞</div>
-                <h3>Make a Call</h3>
-                <p>
-                    Open the phone app, select a contact
-                    and tap the call button.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="icon">💬</div>
-                <h3>WhatsApp</h3>
-                <p>
-                    Send messages, photos and documents
-                    to your family and friends.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="icon">📷</div>
-                <h3>Camera</h3>
-                <p>
-                    Take photos and videos and share them
-                    safely with people you trust.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="icon">🌐</div>
-                <h3>Internet</h3>
-                <p>
-                    Use Wi-Fi or mobile data to search
-                    for useful information online.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="icon">⬇️</div>
-                <h3>Install Apps</h3>
-                <p>
-                    Download apps only from trusted
-                    sources such as the Play Store.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="icon">⚙️</div>
-                <h3>Update Apps</h3>
-                <p>
-                    Keep your phone and apps updated
-                    for better security.
-                </p>
-            </div>
-
+        <div class="stat">
+          <b>2 minutes</b>
+          <span>is usually all it takes to check whether a message is genuine before acting on it</span>
         </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
-
-
-    <!-- Online Safety -->
-    <section id="safety" class="section safety-section">
-
-        <div class="section-title">
-            <p>ONLINE SAFETY</p>
-            <h2>Protect Yourself Online</h2>
-            <span>
-                Small safety habits can protect your personal information.
-            </span>
+  <section class="page" id="tips">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Everyday habits that keep you safe</h2>
+        <p>A few small habits, practised by every member, protect the whole group. Share these at your next meeting.</p>
+      </div>
+      <div class="dodont">
+        <div class="card-list do">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 6-6"/></svg>
+            Do this
+          </h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L19 7"/></svg> Lock your phone with a PIN or pattern, and lock the SIM card too</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L19 7"/></svg> Install apps only from Google Play Store</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L19 7"/></svg> Pause and call a trusted family member before paying anyone new</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L19 7"/></svg> Update your apps and phone software when reminded</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L19 7"/></svg> Tell your group leader if you receive a suspicious message</li>
+          </ul>
         </div>
-
-
-        <div class="safety-grid">
-
-            <div class="safety-card">
-                <span>🔑</span>
-                <h3>Strong Passwords</h3>
-                <p>
-                    Use strong and unique passwords.
-                    Avoid using your name or date of birth.
-                </p>
-            </div>
-
-
-            <div class="safety-card">
-                <span>🔢</span>
-                <h3>Never Share OTP</h3>
-                <p>
-                    Never share your OTP, PIN or password
-                    with anyone.
-                </p>
-            </div>
-
-
-            <div class="safety-card">
-                <span>🔗</span>
-                <h3>Check Links</h3>
-                <p>
-                    Don't click unknown or suspicious links
-                    received through messages.
-                </p>
-            </div>
-
-
-            <div class="safety-card">
-                <span>👤</span>
-                <h3>Protect Privacy</h3>
-                <p>
-                    Don't share private photos, documents
-                    or personal information with strangers.
-                </p>
-            </div>
-
-
-            <div class="safety-card">
-                <span>🚨</span>
-                <h3>Beware of Scams</h3>
-                <p>
-                    Be careful with fake bank calls,
-                    prizes, jobs and KYC messages.
-                </p>
-            </div>
-
-
-            <div class="safety-card">
-                <span>📱</span>
-                <h3>Screen Lock</h3>
-                <p>
-                    Use a PIN, password, fingerprint or
-                    face lock to protect your phone.
-                </p>
-            </div>
-
+        <div class="card-list dont">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+            Never do this
+          </h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg> Share your OTP, PIN, or password — with anyone, even "bank staff"</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg> Click links in messages promising prizes, refunds, or free gifts</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg> Install an app just because someone on a call asked you to</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg> Save your PIN or passwords as notes or contacts in your phone</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg> Send money to "confirm" your identity or unlock a prize</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
-
-
-    <!-- Digital Payments -->
-    <section id="payments" class="section">
-
-        <div class="section-title">
-            <p>DIGITAL PAYMENT SAFETY</p>
-            <h2>Use UPI Safely</h2>
+  <section id="scams" style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Frauds that target women's groups the most</h2>
+        <p>These five tricks come up again and again in SHG meetings. Learn the pattern, and you'll spot the next one instantly.</p>
+      </div>
+      <div class="scam-grid">
+        <div class="scam-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> The OTP call</h3>
+          <p>A caller claims to be from your bank and says your account will be blocked unless you share the OTP right now. Real banks never ask for your OTP over a call.</p>
         </div>
-
-
-        <div class="payment-container">
-
-            <div class="payment-info">
-
-                <h3>💳 Remember These Rules</h3>
-
-                <div class="rule">
-                    <span>✓</span>
-                    <p>Check the receiver's name before paying.</p>
-                </div>
-
-                <div class="rule">
-                    <span>✓</span>
-                    <p>Check the amount before confirming.</p>
-                </div>
-
-                <div class="rule">
-                    <span>✓</span>
-                    <p>Never share your UPI PIN.</p>
-                </div>
-
-                <div class="rule">
-                    <span>✓</span>
-                    <p>Never share your OTP.</p>
-                </div>
-
-                <div class="rule">
-                    <span>✓</span>
-                    <p>Do not approve unknown payment requests.</p>
-                </div>
-
-            </div>
-
-
-            <div class="warning-box">
-
-                <div class="warning-icon">⚠️</div>
-
-                <h3>Important!</h3>
-
-                <p>
-                    Your UPI PIN is used to authorize payments.
-                    Never enter your UPI PIN just because
-                    someone asks you to receive money.
-                </p>
-
-            </div>
-
+        <div class="scam-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> The instant loan app</h3>
+          <p>An app promises quick loans with no paperwork, then charges hidden fees and threatens borrowers using contacts copied from their phone.</p>
         </div>
-
-    </section>
-
-
-    <!-- Quiz -->
-    <section id="quiz" class="section quiz-section">
-
-        <div class="section-title">
-            <p>TEST YOUR KNOWLEDGE</p>
-            <h2>Online Safety Quiz 🧠</h2>
+        <div class="scam-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> The KYC update message</h3>
+          <p>A text says your bank or SHG account will be frozen unless you "update KYC" through a link. The link installs a fake app that reads your messages.</p>
         </div>
-
-
-        <div class="quiz-box">
-
-            <div id="quizContent">
-
-                <h3 id="question">
-                    Loading question...
-                </h3>
-
-                <div id="answers"></div>
-
-                <button id="nextBtn" class="primary-btn">
-                    Next Question
-                </button>
-
-            </div>
-
-
-            <div id="result" class="result hidden">
-
-                <div class="result-icon">🏆</div>
-
-                <h2>Quiz Completed!</h2>
-
-                <p id="score"></p>
-
-                <button onclick="restartQuiz()" class="primary-btn">
-                    Try Again
-                </button>
-
-            </div>
-
+        <div class="scam-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> The lucky winner message</h3>
+          <p>"You have won ₹50,000!" — but first you must pay a small "processing fee". Nobody wins a lottery they never entered.</p>
         </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <div class="footer-logo">
-            🌸 Smart Sakhi
+        <div class="scam-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8a5 5 0 0 0-10 0c0 7-3 9-3 9h16s-3-2-3-9M9 17a3 3 0 0 0 6 0"/></svg> The government scheme link</h3>
+          <p>A forwarded message about a "new government scheme for women" asks you to register with your Aadhaar and bank details on an unofficial site.</p>
         </div>
+        <div class="scam-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> The hacked friend's message</h3>
+          <p>A message from a friend's number asks to borrow money urgently. Their WhatsApp may be hacked — call them on a different number to confirm first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <p>
-            Learn • Connect • Stay Safe
-        </p>
+  <section id="quiz">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Practice: spot the scam</h2>
+        <p>Read each message below and decide — is it safe, or a scam? Practising here makes the real thing easy to catch.</p>
+      </div>
+      <div class="quiz-box">
+        <div class="quiz-top">
+          <h2 id="quizTitle">Message 1 of 6</h2>
+          <span class="quiz-score">Score: <span id="scoreVal">0</span>/6</span>
+        </div>
+        <div class="msg-bubble" id="quizMsg">Loading...</div>
+        <div class="quiz-actions" id="quizActions">
+          <button id="btnSafe">✓ This is safe</button>
+          <button id="btnScam">⚠ This is a scam</button>
+        </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <button class="btn quiz-next" id="quizNext">Next message</button>
+      </div>
+    </div>
+  </section>
 
-        <small>
-            © 2026 Smart Sakhi
-        </small>
+  <section id="faq" style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Ask Sakhi</h2>
+        <p>Questions our members ask most often — answered plainly.</p>
+      </div>
+      <div id="faqList">
+        <div class="faq-item">
+          <button class="faq-q"><span>I already shared my OTP by mistake. What do I do now?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Call your bank's official helpline number immediately and block the card or account. Then call 1930, the national cyber fraud helpline, within the first hour — the sooner you report it, the higher the chance of recovering the money.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Is it safe to save my bank PIN in my phone's notes app?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>No. If your phone is lost, stolen, or hacked, anything saved in notes or contacts can be read easily. It's safer to memorise your PIN or keep it written down somewhere at home, away from the phone.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>How can I tell if a WhatsApp forward is fake?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Look for the "Forwarded many times" label, check if it asks you to click a link or share personal details, and search the claim on Google before believing or forwarding it further.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>My friend's WhatsApp account got hacked. What should she do?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>She should reinstall WhatsApp and verify with the OTP sent to her own number, which logs the hacker out. She should also warn her contacts not to trust any money requests sent during the hack.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Who do I contact if I've already lost money to a scam?</span><span class="plus"></span></button>
+          <div class="faq-a"><p>Call 1930 or report at cybercrime.gov.in as soon as possible. Also inform your bank so they can flag the transaction. Keep screenshots of the messages or calls as proof.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </footer>
+  <section id="help">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Save these numbers in your phone today</h2>
+        <p>Add them as contacts now, before you need them in a hurry.</p>
+      </div>
+      <div class="help-grid">
+        <div class="help-card">
+          <div class="num">1930</div>
+          <h3>National Cyber Crime Helpline</h3>
+          <p>Call within minutes of losing money to fraud. Available every day, all day.</p>
+        </div>
+        <div class="help-card">
+          <div class="num">181</div>
+          <h3>Women's Helpline</h3>
+          <p>For harassment, abuse, or any situation where a woman needs urgent support.</p>
+        </div>
+        <div class="help-card">
+          <div class="num">cybercrime.gov.in</div>
+          <h3>Online Reporting Portal</h3>
+          <p>File a written complaint with screenshots — useful even a few days after the incident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="stitch"></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Smart Sakhi</h4>
+        <p>A phone and online safety companion made by and for women's self-help groups. Bring it up at your next meeting — one tip a week is enough.</p>
+      </div>
+      <div>
+        <h4>On this page</h4>
+        <ul>
+          <li><a href="#tips">Safety tips</a></li>
+          <li><a href="#scams">Common scams</a></li>
+          <li><a href="#quiz">Spot a scam</a></li>
+          <li><a href="#faq">Ask Sakhi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Talk to your circle</h4>
+        <p>Discuss one section with your group each week. Safety habits stick best when practised together, not read alone.</p>
+      </div>
+    </div>
+    <div class="foot-bottom wrap" style="padding:0;">
+      <span>Made for our self-help group, with care.</span>
+      <span>Sakhi se baat karo — talk to a friend if something feels wrong.</span>
+    </div>
+  </div>
+</footer>
 
 
-    <script src="script.js"></script>
 
 </body>
 </html>

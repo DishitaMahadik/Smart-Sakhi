@@ -1,227 +1,91 @@
-// ================= MOBILE MENU =================
+ 
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-
-// Close mobile menu after clicking a link
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+ 
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
     });
+  });
 
-});
+  
+  const quizData = [
+    { text: '"Dear customer, your KYC will expire today. Update immediately at bit.ly/kyc-update2 or your account will be blocked."', isScam: true, explain: 'Real banks never send KYC links through shortened URLs over SMS. This link likely installs a fake app that steals your data.' },
+    { text: 'A message from your SHG leader in the group chat: "Reminder — our meeting is tomorrow at 4pm at the usual place."', isScam: false, explain: 'This is a normal, expected message from someone you know, sent in your existing group — no links, no urgency, no money involved.' },
+    { text: '"Congratulations! Your number has won ₹25,000 in the Kaun Banega Crorepati lucky draw. Pay ₹500 processing fee to claim."', isScam: true, explain: 'You cannot win a contest you never entered. Any prize that asks you to pay first is a scam.' },
+    { text: 'A call from someone saying, "This is your bank. Please tell me the OTP you just received so we can verify your card."', isScam: true, explain: 'No bank employee will ever ask for your OTP over a phone call. Hang up and call your bank\'s official number directly.' },
+    { text: 'Your daughter sends a message: "Reached college safely, will call you after class."', isScam: false, explain: 'A routine, expected message from a known family member with no requests for money or personal details.' },
+    { text: 'A WhatsApp message from an unknown number: "I am from your gas agency. Your subsidy of ₹1,200 is pending — share your bank PIN to receive it."', isScam: true, explain: 'No agency or company ever needs your PIN to send you money. Sharing a PIN gives them access to withdraw money, not deposit it.' }
+  ];
+  let qIndex = 0;
+  let score = 0;
+  let answered = false;
 
+  const quizMsg = document.getElementById('quizMsg');
+  const quizTitle = document.getElementById('quizTitle');
+  const scoreVal = document.getElementById('scoreVal');
+  const quizFeedback = document.getElementById('quizFeedback');
+  const quizNext = document.getElementById('quizNext');
+  const btnSafe = document.getElementById('btnSafe');
+  const btnScam = document.getElementById('btnScam');
 
-// ================= DARK MODE =================
-
-const themeBtn = document.getElementById("themeBtn");
-
-themeBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-        themeBtn.textContent = "☀️";
-    } else {
-        themeBtn.textContent = "🌙";
-    }
-
-});
-
-
-// ================= QUIZ =================
-
-const questions = [
-
-    {
-        question: "Should you share your OTP with someone who calls you?",
-        answers: [
-            "Yes",
-            "No"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "What should you do before sending money using UPI?",
-        answers: [
-            "Check the receiver's name and amount",
-            "Send immediately"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "Which password is safer?",
-        answers: [
-            "123456",
-            "MyName123",
-            "A long, unique password"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "What should you do if you receive a suspicious link?",
-        answers: [
-            "Click it",
-            "Forward it",
-            "Do not click it"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "Where should you preferably download mobile apps?",
-        answers: [
-            "Unknown websites",
-            "Trusted app stores",
-            "Random links"
-        ],
-        correct: 1
-    }
-
-];
-
-
-let currentQuestion = 0;
-let score = 0;
-let answered = false;
-
-
-const questionElement = document.getElementById("question");
-const answersElement = document.getElementById("answers");
-const nextBtn = document.getElementById("nextBtn");
-const resultElement = document.getElementById("result");
-const quizContent = document.getElementById("quizContent");
-const scoreElement = document.getElementById("score");
-
-
-// Display question
-
-function showQuestion() {
-
+  function loadQuestion() {
     answered = false;
+    const q = quizData[qIndex];
+    quizTitle.textContent = `Message ${qIndex + 1} of ${quizData.length}`;
+    quizMsg.textContent = q.text;
+    quizFeedback.className = 'quiz-feedback';
+    quizFeedback.textContent = '';
+    quizNext.classList.remove('show');
+    btnSafe.disabled = false;
+    btnScam.disabled = false;
+  }
 
-    const question = questions[currentQuestion];
-
-    questionElement.textContent = question.question;
-
-    answersElement.innerHTML = "";
-
-    question.answers.forEach((answer, index) => {
-
-        const button = document.createElement("button");
-
-        button.textContent = answer;
-        button.classList.add("answer");
-
-        button.addEventListener("click", () => {
-            selectAnswer(button, index);
-        });
-
-        answersElement.appendChild(button);
-
-    });
-
-    nextBtn.disabled = true;
-}
-
-
-// Check answer
-
-function selectAnswer(button, selectedIndex) {
-
+  function answer(userSaysScam) {
     if (answered) return;
-
     answered = true;
+    const q = quizData[qIndex];
+    const correct = userSaysScam === q.isScam;
+    if (correct) score++;
+    scoreVal.textContent = score;
+    quizFeedback.textContent = (correct ? 'Correct — ' : 'Not quite — ') + q.explain;
+    quizFeedback.className = 'quiz-feedback show ' + (correct ? 'correct' : 'wrong');
+    quizNext.classList.add('show');
+    quizNext.textContent = qIndex === quizData.length - 1 ? 'See final score' : 'Next message';
+  }
 
-    const correctIndex = questions[currentQuestion].correct;
+  btnSafe.addEventListener('click', () => answer(false));
+  btnScam.addEventListener('click', () => answer(true));
 
-    const allAnswers = document.querySelectorAll(".answer");
-
-    allAnswers.forEach((answer, index) => {
-
-        answer.disabled = true;
-
-        if (index === correctIndex) {
-            answer.classList.add("correct");
-        }
-
-    });
-
-
-    if (selectedIndex === correctIndex) {
-
-        button.classList.add("correct");
-
-        score++;
-
+  quizNext.addEventListener('click', () => {
+    qIndex++;
+    if (qIndex >= quizData.length) {
+      quizTitle.textContent = 'Quiz complete!';
+      quizMsg.textContent = `You scored ${score} out of ${quizData.length}. ${score === quizData.length ? 'Perfect — you\'re ready to help others in your group spot these too.' : 'Review the tips above and try again anytime.'}`;
+      document.getElementById('quizActions').style.display = 'none';
+      quizFeedback.className = 'quiz-feedback';
+      quizNext.textContent = 'Start over';
+      quizNext.classList.add('show');
+      quizNext.onclick = () => {
+        qIndex = 0; score = 0; scoreVal.textContent = 0;
+        document.getElementById('quizActions').style.display = 'flex';
+        quizNext.onclick = null;
+        loadQuestion();
+      };
     } else {
-
-        button.classList.add("wrong");
-
+      loadQuestion();
     }
+  });
 
-    nextBtn.disabled = false;
-}
-
-
-// Next question
-
-nextBtn.addEventListener("click", () => {
-
-    currentQuestion++;
-
-    if (currentQuestion < questions.length) {
-
-        showQuestion();
-
-    } else {
-
-        showResult();
-
-    }
-
-});
-
-
-// Show result
-
-function showResult() {
-
-    quizContent.classList.add("hidden");
-
-    resultElement.classList.remove("hidden");
-
-    scoreElement.textContent =
-        `You scored ${score} out of ${questions.length}.`;
-
-}
-
-
-
-
-function restartQuiz() {
-
-    currentQuestion = 0;
-    score = 0;
-
-    resultElement.classList.add("hidden");
-    quizContent.classList.remove("hidden");
-
-    showQuestion();
-
-}
-
-
-
-
-showQuestion();
+  loadQuestion();
